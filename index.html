@@ -6,12 +6,22 @@
   <meta name="description" content="井垣達詞（IGAKI TATSUSHI）- 医学×AI×プロダクト実装。医療・教育の専門知識とWeb／AI実装力を掛け合わせ、課題発見から現場運用まで一貫して推進します。">
   <meta name="keywords" content="井垣達詞, 医学, AI, プロダクト開発, 医療AI, MediaPipe, LLM, FastAPI, React, 奈良県立医科大学">
   <meta name="author" content="井垣 達詞 / IGAKI TATSUSHI">
+  <meta name="theme-color" content="#070a12">
+  <link rel="canonical" href="https://igaki12.github.io/portfolio/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- OGP Tags -->
   <meta property="og:title" content="井垣 達詞 | 医学 × AI × プロダクト実装 Portfolio">
   <meta property="og:description" content="課題の発見から、現場で使われる形まで。医療・教育の専門知識とWeb／AI実装力で、検証・公開まで一貫推進。">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/profile.jpg">
+  <meta property="og:url" content="https://igaki12.github.io/portfolio/">
+  <meta property="og:image" content="https://igaki12.github.io/portfolio/assets/profile.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="井垣達詞のポートフォリオ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="井垣 達詞 | 医学 × AI × プロダクト実装">
+  <meta name="twitter:description" content="医療・教育の専門知識とWeb／AI実装力で、課題発見から検証・公開まで一貫して推進します。">
+  <meta name="twitter:image" content="https://igaki12.github.io/portfolio/assets/profile.webp">
 
   <title>井垣 達詞 | 医学 × AI × プロダクト実装 - Portfolio</title>
 
@@ -55,9 +65,9 @@
             </svg>
             GitHub
           </a>
-          <button type="button" class="btn btn-primary btn-sm open-contact-modal">
+          <a href="#contact" class="btn btn-primary btn-sm">
             ご相談・お問い合わせ
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -79,7 +89,7 @@
       <a href="#contact" class="mobile-nav-link nav-link">Contact</a>
       <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
         <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="flex: 1;">GitHub</a>
-        <button type="button" class="btn btn-primary btn-sm open-contact-modal" style="flex: 1;">相談する</button>
+        <a href="#contact" class="btn btn-primary btn-sm mobile-nav-link" style="flex: 1;">相談する</a>
       </div>
     </div>
   </header>
@@ -130,13 +140,12 @@
               <a href="#achievements" class="btn btn-secondary">
                 実績・受賞歴
               </a>
-              <button type="button" class="btn btn-outline copy-email-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
-                メールアドレスをコピー
-              </button>
+                GitHubを見る
+              </a>
             </div>
 
             <!-- Selected Proof Badges -->
@@ -160,7 +169,7 @@
           <div class="hero-visual reveal-on-scroll">
             <div class="hero-image-wrapper">
               <div class="hero-image-inner">
-                <img src="assets/profile.jpg" alt="井垣 達詞 (IGAKI TATSUSHI) プロフィール写真" class="hero-profile-img" width="440" height="480">
+                <img src="assets/profile.webp" alt="井垣 達詞 (IGAKI TATSUSHI) プロフィール写真" class="hero-profile-img" width="1100" height="825" decoding="async" fetchpriority="high">
               </div>
 
               <!-- Floating Badges -->
@@ -272,8 +281,8 @@
           
           <!-- Project 01: DigiNeuro Marker -->
           <article class="work-card glass-card reveal-on-scroll">
-            <div class="work-visual" onclick="openImageModal('assets/digineuro.png', 'DigiNeuro Marker', '01 DigiNeuro Marker - MG中心プロトタイプ')" role="button" tabindex="0" aria-label="DigiNeuro Markerの画像を拡大表示">
-              <img src="assets/digineuro.png" alt="DigiNeuro Marker スクリーンショット" class="work-img" loading="lazy">
+            <button type="button" class="work-visual image-modal-trigger" data-image="assets/digineuro.webp" data-alt="DigiNeuro Marker" data-caption="01 DigiNeuro Marker - MG中心プロトタイプ" aria-label="DigiNeuro Markerの画像を拡大表示">
+              <img src="assets/digineuro.webp" alt="DigiNeuro Marker スクリーンショット" class="work-img" width="1600" height="1139" loading="lazy" decoding="async">
               <div class="work-visual-overlay">
                 <span class="zoom-btn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -285,7 +294,7 @@
                   画像を拡大
                 </span>
               </div>
-            </div>
+            </button>
 
             <div class="work-info">
               <div class="work-header">
@@ -318,8 +327,8 @@
 
           <!-- Project 02: Career Karte Assistant -->
           <article class="work-card glass-card reveal-on-scroll">
-            <div class="work-visual" onclick="openImageModal('assets/career-karte.png', 'Career Karte Assistant', '02 Career Karte Assistant - デモSPA／実運用ロジック応用')" role="button" tabindex="0" aria-label="Career Karte Assistantの画像を拡大表示">
-              <img src="assets/career-karte.png" alt="Career Karte Assistant スクリーンショット" class="work-img" loading="lazy">
+            <button type="button" class="work-visual image-modal-trigger" data-image="assets/career-karte.webp" data-alt="Career Karte Assistant" data-caption="02 Career Karte Assistant - デモSPA／実運用ロジック応用" aria-label="Career Karte Assistantの画像を拡大表示">
+              <img src="assets/career-karte.webp" alt="Career Karte Assistant スクリーンショット" class="work-img" width="1139" height="883" loading="lazy" decoding="async">
               <div class="work-visual-overlay">
                 <span class="zoom-btn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -331,7 +340,7 @@
                   画像を拡大
                 </span>
               </div>
-            </div>
+            </button>
 
             <div class="work-info">
               <div class="work-header">
@@ -364,8 +373,8 @@
 
           <!-- Project 03: AI解説生成システム -->
           <article class="work-card glass-card reveal-on-scroll">
-            <div class="work-visual" onclick="openImageModal('assets/ai-explainer.png', 'AI解説生成システム', '03 AI解説生成システム - Medteriaインターン／企画リード経験')" role="button" tabindex="0" aria-label="AI解説生成システムの画像を拡大表示">
-              <img src="assets/ai-explainer.png" alt="AI解説生成システム スクリーンショット" class="work-img" loading="lazy">
+            <button type="button" class="work-visual image-modal-trigger" data-image="assets/ai-explainer.webp" data-alt="AI解説生成システム" data-caption="03 AI解説生成システム - Medteriaインターン／企画リード経験" aria-label="AI解説生成システムの画像を拡大表示">
+              <img src="assets/ai-explainer.webp" alt="AI解説生成システム スクリーンショット" class="work-img" width="1600" height="1235" loading="lazy" decoding="async">
               <div class="work-visual-overlay">
                 <span class="zoom-btn">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -377,7 +386,7 @@
                   画像を拡大
                 </span>
               </div>
-            </div>
+            </button>
 
             <div class="work-info">
               <div class="work-header">
@@ -447,9 +456,9 @@
               共同通信社のニュースデータを活用した知識基盤アプリを提案。ニュース同士の関係を可視化し、記事探索と理解度クイズを組み合わせた体験をローカルで構築。
             </p>
           </div>
-          <div class="award-visual" onclick="openImageModal('assets/kyodo-award.jpeg', '第1回 共同通信社 ニュースデータ×AI・知の共創プロジェクト 優秀賞', '第1回 共同通信社「ニュースデータ×AI・知の共創プロジェクト」優秀賞（最高評価・賞金30万円）')" role="button" tabindex="0" aria-label="共同通信社アワード画像を拡大表示">
-            <img src="assets/kyodo-award.jpeg" alt="共同通信社 AI・知の共創プロジェクト 表彰・発表画像" class="award-img" loading="lazy">
-          </div>
+          <button type="button" class="award-visual image-modal-trigger" data-image="assets/kyodo-award.webp" data-alt="第1回 共同通信社 ニュースデータ×AI・知の共創プロジェクト 優秀賞" data-caption="第1回 共同通信社「ニュースデータ×AI・知の共創プロジェクト」優秀賞（最高評価・賞金30万円）" aria-label="共同通信社アワード画像を拡大表示">
+            <img src="assets/kyodo-award.webp" alt="共同通信社 AI・知の共創プロジェクト 表彰・発表画像" class="award-img" width="925" height="675" loading="lazy" decoding="async">
+          </button>
         </div>
 
         <!-- Achievements Grid -->
@@ -729,68 +738,43 @@
         </div>
 
         <div class="contact-grid">
-          
-          <!-- Direct Email Card -->
           <div class="contact-card glass-card reveal-on-scroll">
             <div>
-              <h3 class="contact-card-title">メール・直接連絡</h3>
+              <span class="contact-eyebrow">PUBLIC PROFILE</span>
+              <h3 class="contact-card-title">GitHubからつながる</h3>
               <p class="contact-card-desc">
-                医療・教育・AI・DXのプロトタイプ開発、実証実験、技術顧問、共同開発のご相談など、お気軽にご連絡ください。
+                公開コードや取り組みをご覧いただけます。医療・教育・AI・DXのプロトタイプ開発、実証実験、共同開発に関するご相談を歓迎します。
               </p>
-              
-              <div class="contact-detail-row">
-                <div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">MAIL</div>
-                  <div class="contact-value">igatatsu1997@gmail.com</div>
-                </div>
-                <button type="button" class="copy-btn copy-email-btn" aria-label="メールアドレスをコピー">コピー</button>
-              </div>
 
               <div class="contact-detail-row">
                 <div>
-                  <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">GITHUB</div>
+                  <div class="contact-detail-label">GITHUB</div>
                   <div class="contact-value">github.com/Igaki12</div>
                 </div>
-                <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="copy-btn" style="text-decoration: none;">開く</a>
+                <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="copy-btn">開く</a>
               </div>
             </div>
 
-            <div style="margin-top: 1.5rem;">
-              <a href="mailto:igatatsu1997@gmail.com?subject=案件相談・共同開発について" class="btn btn-primary" style="width: 100%;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                メーラーを起動して送信
-              </a>
-            </div>
+            <button type="button" class="btn btn-primary open-contact-modal contact-primary-action">
+              ご相談について
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+            </button>
           </div>
 
-          <!-- Quick Consultation Form Card -->
           <div class="contact-card glass-card reveal-on-scroll">
             <div>
-              <h3 class="contact-card-title">Webから簡単相談</h3>
+              <span class="contact-eyebrow">PROJECT BRIEF</span>
+              <h3 class="contact-card-title">ご相談時にあるとスムーズな情報</h3>
               <p class="contact-card-desc">
-                フォームに入力いただくと、内容を整理した状態でメーラーが立ち上がります。
+                まだ要件が固まっていなくても問題ありません。次の項目を分かる範囲で整理いただけると、初回の検討がスムーズです。
               </p>
-
-              <form id="consultationForm">
-                <div style="margin-bottom: 1rem;">
-                  <label style="display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem;">お名前・ご所属企業/機関</label>
-                  <input type="text" name="name" required placeholder="例: 山田 太郎 (株式会社〇〇)" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
-                </div>
-                <div style="margin-bottom: 1rem;">
-                  <label style="display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem;">ご用件・件名</label>
-                  <input type="text" name="subject" required placeholder="例: 医療AIプロトタイプ開発のご相談" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
-                </div>
-                <div style="margin-bottom: 1.25rem;">
-                  <label style="display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem;">ご相談内容・課題感</label>
-                  <textarea name="message" rows="3" required placeholder="現状の課題感やアイデアなど、大まかな内容で構いません。" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); color: #fff; outline: none; resize: vertical;"></textarea>
-                </div>
-                <button type="submit" class="btn btn-secondary" style="width: 100%;">
-                  相談内容をメール作成
-                </button>
-              </form>
+              <ul class="contact-brief-list">
+                <li><span>01</span>現在の課題と、実現したい状態</li>
+                <li><span>02</span>想定する利用者と利用シーン</li>
+                <li><span>03</span>希望時期・予算感・検証範囲</li>
+              </ul>
             </div>
           </div>
-
         </div>
 
         <!-- Legal Disclaimer & Confidentiality Notice -->
@@ -822,7 +806,7 @@
         <div style="display: flex; gap: 1.5rem; align-items: center;">
           <a href="#hero" class="nav-link" style="font-size: 0.85rem;">Page Top</a>
           <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="nav-link" style="font-size: 0.85rem;">GitHub</a>
-          <a href="mailto:igatatsu1997@gmail.com" class="nav-link" style="font-size: 0.85rem;">Mail</a>
+          <a href="#contact" class="nav-link" style="font-size: 0.85rem;">Contact</a>
         </div>
       </div>
 
@@ -842,7 +826,7 @@
        ========================================================================= -->
 
   <!-- Image Lightbox Modal -->
-  <div class="modal-backdrop" id="imageModal" role="dialog" aria-modal="true" aria-label="画像プレビューモーダル">
+  <div class="modal-backdrop" id="imageModal" role="dialog" aria-modal="true" aria-label="画像プレビューモーダル" aria-hidden="true">
     <div class="modal-content" style="max-width: 900px; text-align: center;">
       <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="閉じる">&times;</button>
       <img src="" alt="" id="modalImage" class="modal-image-preview">
@@ -851,24 +835,24 @@
   </div>
 
   <!-- Contact Modal -->
-  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-label="案件相談モーダル">
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" aria-hidden="true">
     <div class="modal-content" style="max-width: 540px;">
       <button type="button" class="modal-close-btn" id="contactCloseBtn" aria-label="閉じる">&times;</button>
-      <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">案件相談・お問い合わせ</h3>
+      <h3 id="contactModalTitle" style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">案件相談・お問い合わせ</h3>
       <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-        プロジェクトのご相談・共同開発・技術支援など、お気軽にお問い合わせください。
+        現在、連絡先はGitHubプロフィールに集約しています。公開プロジェクトや活動内容をご確認のうえ、プロフィール上の公開連絡手段からご連絡ください。
       </p>
 
       <div class="contact-detail-row" style="margin-bottom: 1rem;">
         <div>
-          <div style="font-size: 0.72rem; color: var(--text-muted);">DIRECT EMAIL</div>
-          <div class="contact-value" style="font-size: 0.95rem;">igatatsu1997@gmail.com</div>
+          <div class="contact-detail-label">GITHUB</div>
+          <div class="contact-value" style="font-size: 0.95rem;">github.com/Igaki12</div>
         </div>
-        <button type="button" class="copy-btn copy-email-btn">コピー</button>
+        <span class="contact-status-dot" aria-label="公開プロフィール">PUBLIC</span>
       </div>
 
-      <a href="mailto:igatatsu1997@gmail.com?subject=案件相談・共同開発のご連絡" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
-        メーラーを起動して送信
+      <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+        GitHubプロフィールを開く
       </a>
     </div>
   </div>

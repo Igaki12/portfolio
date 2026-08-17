@@ -1,229 +1,172 @@
 /**
- * IGAKI TATSUSHI - Portfolio LP Main Script
- * Smooth Scrolling, ScrollSpy, Lightbox, Toast Notifications & Interactivity
+ * IGAKI TATSUSHI - Portfolio interactions
+ * Navigation, scroll reveals, accessible modals and responsive behavior.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Header Scroll Effect
   const header = document.getElementById('header');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const handleScroll = () => {
-    if (window.scrollY > 40) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
+    header?.classList.toggle('scrolled', window.scrollY > 40);
   };
+
+  const closeMobileMenu = () => {
+    mobileNavDrawer?.classList.remove('open');
+    mobileMenuBtn?.classList.remove('open');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    mobileMenuBtn?.setAttribute('aria-label', 'メニューを開く');
+  };
+
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
 
-  // 2. Mobile Menu Drawer
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mobileNavDrawer = document.getElementById('mobileNavDrawer');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
   if (mobileMenuBtn && mobileNavDrawer) {
     mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileNavDrawer.classList.contains('open');
-      if (isOpen) {
-        mobileNavDrawer.classList.remove('open');
-        mobileMenuBtn.classList.remove('open');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      } else {
-        mobileNavDrawer.classList.add('open');
-        mobileMenuBtn.classList.add('open');
-        mobileMenuBtn.setAttribute('aria-expanded', 'true');
-      }
+      const willOpen = !mobileNavDrawer.classList.contains('open');
+      mobileNavDrawer.classList.toggle('open', willOpen);
+      mobileMenuBtn.classList.toggle('open', willOpen);
+      mobileMenuBtn.setAttribute('aria-expanded', String(willOpen));
+      mobileMenuBtn.setAttribute('aria-label', willOpen ? 'メニューを閉じる' : 'メニューを開く');
     });
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNavDrawer.classList.remove('open');
-        mobileMenuBtn.classList.remove('open');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
-      });
+    mobileNavDrawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 960) closeMobileMenu();
     });
   }
 
-  // 3. ScrollSpy & Active Navigation
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -70% 0px',
-    threshold: 0
-  };
-
-  const spyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  if ('IntersectionObserver' in window) {
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
         const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          if (link.getAttribute('href') === `#${id}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
-      }
+      });
+    }, {
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
     });
-  }, observerOptions);
 
-  sections.forEach(section => spyObserver.observe(section));
+    sections.forEach((section) => spyObserver.observe(section));
+  }
 
-  // 4. Scroll Reveal Animations
   const revealElements = document.querySelectorAll('.reveal-on-scroll');
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  const staggerGroups = document.querySelectorAll(
+    '.approaches-grid, .works-list, .achievements-grid, .capabilities-grid, .contact-grid'
+  );
+
+  staggerGroups.forEach((group) => {
+    group.querySelectorAll(':scope > .reveal-on-scroll').forEach((element, index) => {
+      element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 280)}ms`);
+    });
+  });
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
-      }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
     });
-  }, {
-    root: null,
-    threshold: 0.12,
-    rootMargin: '0px 0px -50px 0px'
-  });
 
-  revealElements.forEach(el => revealObserver.observe(el));
+    revealElements.forEach((element) => revealObserver.observe(element));
+  }
 
-  // 5. Toast Notification Helper
-  const toastContainer = document.getElementById('toastContainer');
-  window.showToast = function(message, duration = 3000) {
-    if (!toastContainer) return;
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-      <span>${message}</span>
-    `;
-    toastContainer.appendChild(toast);
+  let activeModal = null;
+  let previouslyFocusedElement = null;
 
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(10px)';
-      toast.style.transition = 'all 0.3s ease';
-      setTimeout(() => toast.remove(), 300);
-    }, duration);
+  const getFocusableElements = (modal) => Array.from(modal.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )).filter((element) => !element.hasAttribute('hidden'));
+
+  const openModal = (modal) => {
+    if (!modal) return;
+    previouslyFocusedElement = document.activeElement;
+    activeModal = modal;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    window.requestAnimationFrame(() => getFocusableElements(modal)[0]?.focus());
   };
 
-  // 6. Copy Email to Clipboard
-  const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
-  copyEmailBtns.forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      e.preventDefault();
-      const email = 'igatatsu1997@gmail.com';
-      try {
-        await navigator.clipboard.writeText(email);
-        window.showToast('メールアドレスをクリップボードにコピーしました！');
-      } catch (err) {
-        // Fallback for older browsers
-        const textarea = document.createElement('textarea');
-        textarea.value = email;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        window.showToast('メールアドレスをコピーしました！');
-      }
-    });
-  });
+  const closeModal = (modal = activeModal) => {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    activeModal = null;
+    previouslyFocusedElement?.focus();
+    previouslyFocusedElement = null;
+  };
 
-  // 7. Lightbox Image Modal
   const imageModal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
   const modalCaption = document.getElementById('modalCaption');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-  window.openImageModal = function(src, alt, caption) {
-    if (!imageModal || !modalImg) return;
-    modalImg.src = src;
-    modalImg.alt = alt || 'Preview';
-    if (modalCaption) {
-      modalCaption.textContent = caption || alt || '';
-    }
-    imageModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeImageModal = () => {
-    if (!imageModal) return;
-    imageModal.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', closeImageModal);
-  }
-
-  if (imageModal) {
-    imageModal.addEventListener('click', (e) => {
-      if (e.target === imageModal) {
-        closeImageModal();
-      }
-    });
-  }
-
-  // 8. Contact Consultation Modal
-  const contactModal = document.getElementById('contactModal');
-  const contactCloseBtn = document.getElementById('contactCloseBtn');
-  const openContactBtns = document.querySelectorAll('.open-contact-modal');
-  const contactForm = document.getElementById('consultationForm');
-
-  window.openContactModal = function() {
-    if (!contactModal) return;
-    contactModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeContactModal = () => {
-    if (!contactModal) return;
-    contactModal.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  openContactBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.openContactModal();
+  document.querySelectorAll('.image-modal-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      if (!imageModal || !modalImg) return;
+      modalImg.src = trigger.dataset.image || '';
+      modalImg.alt = trigger.dataset.alt || 'Preview';
+      if (modalCaption) modalCaption.textContent = trigger.dataset.caption || trigger.dataset.alt || '';
+      openModal(imageModal);
     });
   });
 
-  if (contactCloseBtn) {
-    contactCloseBtn.addEventListener('click', closeContactModal);
-  }
+  modalCloseBtn?.addEventListener('click', () => closeModal(imageModal));
+  imageModal?.addEventListener('click', (event) => {
+    if (event.target === imageModal) closeModal(imageModal);
+  });
 
-  if (contactModal) {
-    contactModal.addEventListener('click', (e) => {
-      if (e.target === contactModal) {
-        closeContactModal();
-      }
-    });
-  }
+  const contactModal = document.getElementById('contactModal');
+  const contactCloseBtn = document.getElementById('contactCloseBtn');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const subject = encodeURIComponent(contactForm.querySelector('[name="subject"]')?.value || 'ポートフォリオからの案件相談・お問い合わせ');
-      const body = encodeURIComponent(`【お名前・ご所属】\n${contactForm.querySelector('[name="name"]')?.value || ''}\n\n【メールアドレス】\n${contactForm.querySelector('[name="email"]')?.value || ''}\n\n【ご相談内容】\n${contactForm.querySelector('[name="message"]')?.value || ''}`);
-      
-      // Open Mailto
-      window.location.href = `mailto:igatatsu1997@gmail.com?subject=${subject}&body=${body}`;
-      
-      window.showToast('メーラーを起動しました。送信を完了してください。');
-      closeContactModal();
-      contactForm.reset();
-    });
-  }
+  document.querySelectorAll('.open-contact-modal').forEach((button) => {
+    button.addEventListener('click', () => openModal(contactModal));
+  });
 
-  // Close modals on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeImageModal();
-      closeContactModal();
+  contactCloseBtn?.addEventListener('click', () => closeModal(contactModal));
+  contactModal?.addEventListener('click', (event) => {
+    if (event.target === contactModal) closeModal(contactModal);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      if (activeModal) closeModal(activeModal);
+      else closeMobileMenu();
+      return;
+    }
+
+    if (event.key !== 'Tab' || !activeModal) return;
+    const focusable = getFocusableElements(activeModal);
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
     }
   });
 });
