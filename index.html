@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="井垣達詞（IGAKI TATSUSHI）- 医学×AI×プロダクト実装。医療・教育の専門知識とWeb／AI実装力を掛け合わせ、課題発見から現場運用まで一貫して推進します。">
+  <meta name="keywords" content="井垣達詞, 医学, AI, プロダクト開発, 医療AI, MediaPipe, LLM, FastAPI, React, 奈良県立医科大学">
+  <meta name="author" content="井垣 達詞 / IGAKI TATSUSHI">
+
+  <!-- OGP Tags -->
+  <meta property="og:title" content="井垣 達詞 | 医学 × AI × プロダクト実装 Portfolio">
+  <meta property="og:description" content="課題の発見から、現場で使われる形まで。医療・教育の専門知識とWeb／AI実装力で、検証・公開まで一貫推進。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile.jpg">
+
+  <title>井垣 達詞 | 医学 × AI × プロダクト実装 - Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       Header & Navigation
+       ========================================================================= -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo" aria-label="井垣 達詞 ポートフォリオトップ">
+        <span class="brand-name">
+          <span class="brand-dot"></span>
+          IGAKI TATSUSHI
+        </span>
+        <span class="brand-tag">Medicine × AI × Product</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="nav-desktop" aria-label="メインナビゲーション">
+        <ul class="nav-links">
+          <li><a href="#profile" class="nav-link">Profile</a></li>
+          <li><a href="#works" class="nav-link">Selected Works</a></li>
+          <li><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" aria-label="GitHub プロフィール">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <button type="button" class="btn btn-primary btn-sm open-contact-modal">
+            ご相談・お問い合わせ
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="メニューを開く" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <a href="#profile" class="mobile-nav-link nav-link">Profile</a>
+      <a href="#works" class="mobile-nav-link nav-link">Selected Works</a>
+      <a href="#achievements" class="mobile-nav-link nav-link">Achievements</a>
+      <a href="#capabilities" class="mobile-nav-link nav-link">Capabilities</a>
+      <a href="#process" class="mobile-nav-link nav-link">Process</a>
+      <a href="#contact" class="mobile-nav-link nav-link">Contact</a>
+      <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+        <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="flex: 1;">GitHub</a>
+        <button type="button" class="btn btn-primary btn-sm open-contact-modal" style="flex: 1;">相談する</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         Hero Section (First View)
+         ========================================================================= -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Text Content -->
+          <div class="hero-content reveal-on-scroll">
+            <div class="hero-meta-badge">
+              <span class="font-mono">PROJECT PROFILE</span>
+              <span>2026.08</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="text-gradient">医学 × AI × プロダクト実装</span>
+            </h1>
+
+            <p class="hero-catchphrase">
+              課題の発見から、現場で使われる形まで。
+            </p>
+
+            <p class="hero-desc">
+              医療・教育の専門知識とWeb／AI実装力を掛け合わせ、企画・要件設計・検証・公開まで一貫して推進します。
+            </p>
+
+            <div class="hero-profile-author">
+              <div>
+                <span class="author-name">井垣 達詞</span>
+                <span class="author-romaji">IGAKI TATSUSHI</span>
+                <div class="author-affiliation">奈良県立医科大学 医学部医学科 ／ 応用情報技術者試験合格</div>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a href="#works" class="btn btn-primary">
+                代表プロジェクトを見る
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#achievements" class="btn btn-secondary">
+                実績・受賞歴
+              </a>
+              <button type="button" class="btn btn-outline copy-email-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                メールアドレスをコピー
+              </button>
+            </div>
+
+            <!-- Selected Proof Badges -->
+            <div class="proof-badges-row">
+              <div class="proof-card">
+                <span class="proof-number text-gradient-cyan">800人規模</span>
+                <span class="proof-label">学会入場管理を当日運用</span>
+              </div>
+              <div class="proof-card">
+                <span class="proof-number text-gradient-gold">最高評価</span>
+                <span class="proof-label">AI・知の共創プロジェクト</span>
+              </div>
+              <div class="proof-card">
+                <span class="proof-number text-gradient">第2著者</span>
+                <span class="proof-label">eLife掲載研究</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual (Profile Card & Floating Elements) -->
+          <div class="hero-visual reveal-on-scroll">
+            <div class="hero-image-wrapper">
+              <div class="hero-image-inner">
+                <img src="assets/profile.jpg" alt="井垣 達詞 (IGAKI TATSUSHI) プロフィール写真" class="hero-profile-img" width="440" height="480">
+              </div>
+
+              <!-- Floating Badges -->
+              <div class="hero-floating-card top-right">
+                <div class="floating-icon emerald">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="floating-text-title">Medicine × AI</div>
+                  <div class="floating-text-sub">医学的妥当性 × 実装力</div>
+                </div>
+              </div>
+
+              <div class="hero-floating-card bottom-left">
+                <div class="floating-icon cyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="floating-text-title">End-to-End Delivery</div>
+                  <div class="floating-text-sub">要件定義から運用まで</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Core Profile & 4 Approaches (Value Proposition)
+         ========================================================================= -->
+    <section class="section" id="profile">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-badge">PROFILE & VALUE</span>
+          <h2 class="section-title">強みとアプローチ</h2>
+          <p class="section-subtitle">
+            医学・教育・AI・Webの境界を越え、現場の課題を検証可能な形へ落とし込みます。
+          </p>
+        </div>
+
+        <div class="profile-intro-box glass-card reveal-on-scroll">
+          <p class="profile-intro-text">
+            医学的な妥当性、利用者体験、実装可能性を同じテーブルに載せ、専門家と対話しながらプロダクトへ落とし込むことを得意としています。応用情報技術者試験合格。Python／JavaScriptを中心に、研究解析から生成AI・画像推定・業務支援システムまで開発してきました。
+          </p>
+        </div>
+
+        <div class="approaches-grid">
+          <!-- 01 -->
+          <div class="approach-card glass-card reveal-on-scroll">
+            <span class="approach-number">01</span>
+            <h3 class="approach-title">課題を構造化</h3>
+            <p class="approach-desc">
+              医療・教育現場の曖昧な困りごとを、検証可能な要件と運用フローへ。
+            </p>
+          </div>
+
+          <!-- 02 -->
+          <div class="approach-card glass-card reveal-on-scroll">
+            <span class="approach-number">02</span>
+            <h3 class="approach-title">AI/CVを実装</h3>
+            <p class="approach-desc">
+              LLM、RAG、MediaPipeを、UI・データ処理・安全性まで含めて組み込み。
+            </p>
+          </div>
+
+          <!-- 03 -->
+          <div class="approach-card glass-card reveal-on-scroll">
+            <span class="approach-number">03</span>
+            <h3 class="approach-title">専門家と共同開発</h3>
+            <p class="approach-desc">
+              医師、研究者、教育者、整体師、高校教員などとの協働を経験。
+            </p>
+          </div>
+
+          <!-- 04 -->
+          <div class="approach-card glass-card reveal-on-scroll">
+            <span class="approach-number">04</span>
+            <h3 class="approach-title">運用まで届ける</h3>
+            <p class="approach-desc">
+              プロトタイプ、納品、学内採用、イベント運用、GitHub Pages公開まで対応。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Selected Works (代表プロジェクト 3選)
+         ========================================================================= -->
+    <section class="section" id="works">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-badge">SELECTED WORKS</span>
+          <h2 class="section-title">代表プロジェクト</h2>
+          <p class="section-subtitle">
+            医学・教育・人材支援の課題を、AIとWeb技術で具体的なワークフローへ変換。
+          </p>
+        </div>
+
+        <div class="works-list">
+          
+          <!-- Project 01: DigiNeuro Marker -->
+          <article class="work-card glass-card reveal-on-scroll">
+            <div class="work-visual" onclick="openImageModal('assets/digineuro.png', 'DigiNeuro Marker', '01 DigiNeuro Marker - MG中心プロトタイプ')" role="button" tabindex="0" aria-label="DigiNeuro Markerの画像を拡大表示">
+              <img src="assets/digineuro.png" alt="DigiNeuro Marker スクリーンショット" class="work-img" loading="lazy">
+              <div class="work-visual-overlay">
+                <span class="zoom-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  画像を拡大
+                </span>
+              </div>
+            </div>
+
+            <div class="work-info">
+              <div class="work-header">
+                <span class="work-number">01</span>
+                <span class="work-badge">MG中心プロトタイプ</span>
+              </div>
+              <h3 class="work-title">DigiNeuro Marker</h3>
+              <p class="work-summary">
+                重症筋無力症などの神経疾患で、診察時だけでは捉えにくい症状変化を自宅で記録し、経時比較を支援するWebアプリ。眼瞼下垂、上肢、歩行、姿勢、表情、音声、ePROを統合。
+              </p>
+
+              <div class="work-role-box">
+                <span class="work-role-label">担当・価値</span>
+                <p class="work-role-text">
+                  医学論文を起点に要件化し、患者向け導線、時系列記録、医師共有のダミーフローまで設計・実装。診断機器ではなく、変化の記録・比較支援として位置づけ。
+                </p>
+              </div>
+
+              <div class="tech-stack-row">
+                <span class="tech-label">TECH:</span>
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Vite</span>
+                <span class="tech-pill">MediaPipe Face・Pose</span>
+                <span class="tech-pill">IndexedDB</span>
+                <span class="tech-pill">Recharts</span>
+                <span class="tech-pill">GitHub Pages</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02: Career Karte Assistant -->
+          <article class="work-card glass-card reveal-on-scroll">
+            <div class="work-visual" onclick="openImageModal('assets/career-karte.png', 'Career Karte Assistant', '02 Career Karte Assistant - デモSPA／実運用ロジック応用')" role="button" tabindex="0" aria-label="Career Karte Assistantの画像を拡大表示">
+              <img src="assets/career-karte.png" alt="Career Karte Assistant スクリーンショット" class="work-img" loading="lazy">
+              <div class="work-visual-overlay">
+                <span class="zoom-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  画像を拡大
+                </span>
+              </div>
+            </div>
+
+            <div class="work-info">
+              <div class="work-header">
+                <span class="work-number">02</span>
+                <span class="work-badge">デモSPA／実運用ロジック応用</span>
+              </div>
+              <h3 class="work-title">Career Karte Assistant</h3>
+              <p class="work-summary">
+                人材支援企業で実運用されるAI問診ロジックを応用し、面談前準備からSHIRP形式のキャリアカルテ作成、権限別閲覧まで支援するエージェントUI。企業名・内部情報は非公開。
+              </p>
+
+              <div class="work-role-box">
+                <span class="work-role-label">担当・価値</span>
+                <p class="work-role-text">
+                  初回／継続面談、AI対話、カルテ更新、一般ユーザー・企業管理者・運用管理者・コンサルタント別画面を設計。PDF／CSV出力にも対応する構成。
+                </p>
+              </div>
+
+              <div class="tech-stack-row">
+                <span class="tech-label">TECH:</span>
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">TypeScript</span>
+                <span class="tech-pill">Chakra UI</span>
+                <span class="tech-pill">OpenAI・Gemini API</span>
+                <span class="tech-pill">Three.js・VRM</span>
+                <span class="tech-pill">GitHub Pages</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03: AI解説生成システム -->
+          <article class="work-card glass-card reveal-on-scroll">
+            <div class="work-visual" onclick="openImageModal('assets/ai-explainer.png', 'AI解説生成システム', '03 AI解説生成システム - Medteriaインターン／企画リード経験')" role="button" tabindex="0" aria-label="AI解説生成システムの画像を拡大表示">
+              <img src="assets/ai-explainer.png" alt="AI解説生成システム スクリーンショット" class="work-img" loading="lazy">
+              <div class="work-visual-overlay">
+                <span class="zoom-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  画像を拡大
+                </span>
+              </div>
+            </div>
+
+            <div class="work-info">
+              <div class="work-header">
+                <span class="work-number">03</span>
+                <span class="work-badge">Medteriaインターン／企画リード経験</span>
+              </div>
+              <h3 class="work-title">AI解説生成システム</h3>
+              <p class="work-summary">
+                医学部の過去問PDF・画像から、生成AIで解答・解説を作成しPDFとして提供する学習支援基盤。大学ごとの教材作成コストを下げる企画として、設計・検証を推進。
+              </p>
+
+              <div class="work-role-box">
+                <span class="work-role-label">担当・価値</span>
+                <p class="work-role-text">
+                  FastAPIの非同期ジョブ、Geminiによるマルチモーダル生成、Markdown→PDF変換を構成。GitHubとVanilla JSの簡易アプリを使い、企画立ち上げ・開発指導も経験。
+                </p>
+              </div>
+
+              <div class="tech-stack-row">
+                <span class="tech-label">TECH:</span>
+                <span class="tech-pill">Python 3.13</span>
+                <span class="tech-pill">FastAPI</span>
+                <span class="tech-pill">Gemini</span>
+                <span class="tech-pill">Uvicorn</span>
+                <span class="tech-pill">Pandoc</span>
+                <span class="tech-pill">GitHub</span>
+                <span class="tech-pill">Vanilla JS</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Selected Achievements (実績・受賞・研究)
+         ========================================================================= -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-badge">SELECTED ACHIEVEMENTS</span>
+          <h2 class="section-title">実績・受賞・研究</h2>
+          <p class="section-subtitle">
+            公開可能な成果を、規模・採用・評価の観点で選抜。
+          </p>
+        </div>
+
+        <!-- Featured Major Award Card: 共同通信社 -->
+        <div class="featured-award-card reveal-on-scroll">
+          <div class="award-info">
+            <div class="award-badge-top">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+              AWARD & RECOGNITION
+            </div>
+            <h3 class="award-title">
+              第1回 共同通信社「ニュースデータ×AI・知の共創プロジェクト」
+            </h3>
+            <div class="award-highlights">
+              <span class="award-tag">優秀賞</span>
+              <span class="award-tag">最高評価</span>
+              <span class="award-tag">賞金30万円</span>
+            </div>
+            <p class="award-desc">
+              共同通信社のニュースデータを活用した知識基盤アプリを提案。ニュース同士の関係を可視化し、記事探索と理解度クイズを組み合わせた体験をローカルで構築。
+            </p>
+          </div>
+          <div class="award-visual" onclick="openImageModal('assets/kyodo-award.jpeg', '第1回 共同通信社 ニュースデータ×AI・知の共創プロジェクト 優秀賞', '第1回 共同通信社「ニュースデータ×AI・知の共創プロジェクト」優秀賞（最高評価・賞金30万円）')" role="button" tabindex="0" aria-label="共同通信社アワード画像を拡大表示">
+            <img src="assets/kyodo-award.jpeg" alt="共同通信社 AI・知の共創プロジェクト 表彰・発表画像" class="award-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Achievements Grid -->
+        <div class="achievements-grid">
+          
+          <!-- HEALTH AI -->
+          <div class="achievement-card glass-card reveal-on-scroll">
+            <span class="achievement-cat text-gradient-cyan">HEALTH AI</span>
+            <h4 class="achievement-title">Photo Carb Counter</h4>
+            <p class="achievement-desc">
+              食品写真と手を参照し、炭水化物量を参考推定。MediaPipe Hands、Gemini、FNDDS＋日本食品標準成分表の計7,970件を統合。
+            </p>
+          </div>
+
+          <!-- EDTECH -->
+          <div class="achievement-card glass-card reveal-on-scroll">
+            <span class="achievement-cat text-gradient">EDTECH</span>
+            <h4 class="achievement-title">電子カルテシミュレーター</h4>
+            <p class="achievement-desc">
+              生成AIと電子カルテ風UIを組み合わせた医学生向け訓練環境。奈良医大独自のPost-CC-OSCE（実技試験）で採用。
+            </p>
+          </div>
+
+          <!-- EVENT OPS -->
+          <div class="achievement-card glass-card reveal-on-scroll">
+            <span class="achievement-cat text-gradient-cyan">EVENT OPS</span>
+            <h4 class="achievement-title">第29回日本渡航医学会</h4>
+            <p class="achievement-desc">
+              QRコード読取と入場ログを担うシステムを納品し、800人規模の学会運営で当日利用。
+            </p>
+          </div>
+
+          <!-- RESEARCH -->
+          <div class="achievement-card glass-card reveal-on-scroll">
+            <span class="achievement-cat text-gradient">RESEARCH</span>
+            <h4 class="achievement-title">RNA-seq解析／eLife掲載</h4>
+            <p class="achievement-desc">
+              発生再生医学研究室で遺伝子発現量解析を担当。共同研究成果がeLifeに掲載され、第2著者として参画。
+            </p>
+          </div>
+
+          <!-- SIMULATION -->
+          <div class="achievement-card glass-card reveal-on-scroll">
+            <span class="achievement-cat text-gradient-cyan">SIMULATION</span>
+            <h4 class="achievement-title">対人・教育シミュレーター</h4>
+            <p class="achievement-desc">
+              保護者・保育者対応、教師、キャリア面談など、LLM・音声・3Dモデルを活用した練習環境を共同開発。
+            </p>
+          </div>
+
+          <!-- FOUNDATION -->
+          <div class="achievement-card glass-card reveal-on-scroll">
+            <span class="achievement-cat text-gradient-gold">FOUNDATION</span>
+            <h4 class="achievement-title">第54回日本学生科学賞</h4>
+            <p class="achievement-desc">
+              継続的な探究活動の原点。環境大臣賞を受賞（賞金30万円）。
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Other Builds Section -->
+        <div class="other-builds-card glass-card reveal-on-scroll">
+          <div class="other-builds-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            OTHER BUILDS
+          </div>
+          <div class="other-builds-tags">
+            <span class="other-build-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              AI姿勢推定健康アプリ
+            </span>
+            <span class="other-build-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              スポーツ解析アプリ
+            </span>
+            <span class="other-build-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              医療情報問題集アプリ
+            </span>
+            <span class="other-build-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              ニュース記事探求クイズ
+            </span>
+            <span class="other-build-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              RAGデモ
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Capabilities (できること・ご相談領域)
+         ========================================================================= -->
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-badge">CAPABILITIES</span>
+          <h2 class="section-title">できること・ご相談領域</h2>
+          <p class="section-subtitle">
+            企画だけ、実装だけで終わらせず、検証可能なプロダクトとして届けます。
+          </p>
+        </div>
+
+        <div class="capabilities-grid">
+          
+          <!-- LANGUAGE -->
+          <div class="capability-card glass-card reveal-on-scroll">
+            <div class="capability-header">
+              <div class="capability-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+              </div>
+              <h3 class="capability-category">LANGUAGE</h3>
+            </div>
+            <div class="capability-items">
+              <span class="capability-item">Python</span>
+              <span class="capability-item">JavaScript</span>
+              <span class="capability-item">TypeScript</span>
+              <span class="capability-item">HTML・CSS</span>
+            </div>
+          </div>
+
+          <!-- FRONTEND -->
+          <div class="capability-card glass-card reveal-on-scroll">
+            <div class="capability-header">
+              <div class="capability-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <h3 class="capability-category">FRONTEND</h3>
+            </div>
+            <div class="capability-items">
+              <span class="capability-item">React</span>
+              <span class="capability-item">Vite</span>
+              <span class="capability-item">Chakra UI</span>
+              <span class="capability-item">Three.js・VRM</span>
+              <span class="capability-item">Recharts</span>
+            </div>
+          </div>
+
+          <!-- AI / CV -->
+          <div class="capability-card glass-card reveal-on-scroll">
+            <div class="capability-header">
+              <div class="capability-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </div>
+              <h3 class="capability-category">AI / CV</h3>
+            </div>
+            <div class="capability-items">
+              <span class="capability-item">Gemini API</span>
+              <span class="capability-item">OpenAI API</span>
+              <span class="capability-item">RAG</span>
+              <span class="capability-item">MediaPipe Face・Pose・Hands</span>
+            </div>
+          </div>
+
+          <!-- BACKEND -->
+          <div class="capability-card glass-card reveal-on-scroll">
+            <div class="capability-header">
+              <div class="capability-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+              </div>
+              <h3 class="capability-category">BACKEND</h3>
+            </div>
+            <div class="capability-items">
+              <span class="capability-item">FastAPI</span>
+              <span class="capability-item">NodeJS</span>
+              <span class="capability-item">Gunicorn</span>
+              <span class="capability-item">Pandoc</span>
+              <span class="capability-item">IndexedDB</span>
+              <span class="capability-item">Storage</span>
+            </div>
+          </div>
+
+          <!-- DELIVERY -->
+          <div class="capability-card glass-card reveal-on-scroll">
+            <div class="capability-header">
+              <div class="capability-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+              </div>
+              <h3 class="capability-category">DELIVERY</h3>
+            </div>
+            <div class="capability-items">
+              <span class="capability-item">GitHub</span>
+              <span class="capability-item">オンプレミス</span>
+              <span class="capability-item">VPS</span>
+              <span class="capability-item">要件整理</span>
+              <span class="capability-item">検証</span>
+              <span class="capability-item">運用支援</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Project Delivery Process (01 - 07)
+         ========================================================================= -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-badge">PROJECT DELIVERY</span>
+          <h2 class="section-title">プロジェクトの進め方</h2>
+          <p class="section-subtitle">
+            01の課題整理から07の運用支援まで、一貫したステップでスピーディに伴走します。
+          </p>
+        </div>
+
+        <div class="process-timeline glass-card reveal-on-scroll" style="padding: 2.5rem 1.5rem;">
+          <div class="process-step">
+            <div class="process-number">01</div>
+            <div class="process-title">課題整理</div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">02</div>
+            <div class="process-title">企画</div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">03</div>
+            <div class="process-title">要件設計</div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">04</div>
+            <div class="process-title">UI/UX</div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">05</div>
+            <div class="process-title">AI組込</div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">06</div>
+            <div class="process-title">検証</div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">07</div>
+            <div class="process-title">公開・運用</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Working Style & Philosophy
+         ========================================================================= -->
+    <section class="section" id="philosophy">
+      <div class="container">
+        <div class="philosophy-card reveal-on-scroll">
+          <span class="section-badge" style="margin-bottom: 1.5rem;">WORKING STYLE</span>
+          <h2 class="philosophy-heading">
+            専門家と協働し、<br>現場で使われる形まで実装する。
+          </h2>
+          <p class="philosophy-desc">
+            医学・教育・人材支援など、ドメイン知識が必要なプロジェクトほど力を発揮します。未整理な課題からでも、検証可能なプロトタイプと次の意思決定をつくります。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         Contact & Consultation Section
+         ========================================================================= -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <span class="section-badge">CONTACT</span>
+          <h2 class="section-title">案件相談・共同開発</h2>
+          <p class="section-subtitle">
+            まずは課題感からご相談ください。
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Direct Email Card -->
+          <div class="contact-card glass-card reveal-on-scroll">
+            <div>
+              <h3 class="contact-card-title">メール・直接連絡</h3>
+              <p class="contact-card-desc">
+                医療・教育・AI・DXのプロトタイプ開発、実証実験、技術顧問、共同開発のご相談など、お気軽にご連絡ください。
+              </p>
+              
+              <div class="contact-detail-row">
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">MAIL</div>
+                  <div class="contact-value">igatatsu1997@gmail.com</div>
+                </div>
+                <button type="button" class="copy-btn copy-email-btn" aria-label="メールアドレスをコピー">コピー</button>
+              </div>
+
+              <div class="contact-detail-row">
+                <div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">GITHUB</div>
+                  <div class="contact-value">github.com/Igaki12</div>
+                </div>
+                <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="copy-btn" style="text-decoration: none;">開く</a>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <a href="mailto:igatatsu1997@gmail.com?subject=案件相談・共同開発について" class="btn btn-primary" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                メーラーを起動して送信
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Consultation Form Card -->
+          <div class="contact-card glass-card reveal-on-scroll">
+            <div>
+              <h3 class="contact-card-title">Webから簡単相談</h3>
+              <p class="contact-card-desc">
+                フォームに入力いただくと、内容を整理した状態でメーラーが立ち上がります。
+              </p>
+
+              <form id="consultationForm">
+                <div style="margin-bottom: 1rem;">
+                  <label style="display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem;">お名前・ご所属企業/機関</label>
+                  <input type="text" name="name" required placeholder="例: 山田 太郎 (株式会社〇〇)" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                  <label style="display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem;">ご用件・件名</label>
+                  <input type="text" name="subject" required placeholder="例: 医療AIプロトタイプ開発のご相談" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); color: #fff; outline: none;">
+                </div>
+                <div style="margin-bottom: 1.25rem;">
+                  <label style="display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem;">ご相談内容・課題感</label>
+                  <textarea name="message" rows="3" required placeholder="現状の課題感やアイデアなど、大まかな内容で構いません。" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle); color: #fff; outline: none; resize: vertical;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary" style="width: 100%;">
+                  相談内容をメール作成
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Legal Disclaimer & Confidentiality Notice -->
+        <div class="legal-notice-box reveal-on-scroll">
+          <p>
+            ※ 医療系プロダクトは診断を目的とせず、研究・記録・経時比較・業務支援の範囲を明確にして設計しています。非公開案件の企業名・内部仕様は掲載していません。
+          </p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div>
+          <div style="font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem;">
+            井垣 達詞  |  IGAKI TATSUSHI
+          </div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            奈良県立医科大学 医学部医学科  |  Medicine × AI × Product Implementation
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="#hero" class="nav-link" style="font-size: 0.85rem;">Page Top</a>
+          <a href="https://github.com/Igaki12" target="_blank" rel="noopener noreferrer" class="nav-link" style="font-size: 0.85rem;">GitHub</a>
+          <a href="mailto:igatatsu1997@gmail.com" class="nav-link" style="font-size: 0.85rem;">Mail</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 IGAKI TATSUSHI. All rights reserved.
+        </div>
+        <div>
+          Designed for Enterprise & Medical AI Collaboration.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Modals & Toast UI Containers
+       ========================================================================= -->
+
+  <!-- Image Lightbox Modal -->
+  <div class="modal-backdrop" id="imageModal" role="dialog" aria-modal="true" aria-label="画像プレビューモーダル">
+    <div class="modal-content" style="max-width: 900px; text-align: center;">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="閉じる">&times;</button>
+      <img src="" alt="" id="modalImage" class="modal-image-preview">
+      <div id="modalCaption" style="margin-top: 1rem; font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);"></div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-label="案件相談モーダル">
+    <div class="modal-content" style="max-width: 540px;">
+      <button type="button" class="modal-close-btn" id="contactCloseBtn" aria-label="閉じる">&times;</button>
+      <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">案件相談・お問い合わせ</h3>
+      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        プロジェクトのご相談・共同開発・技術支援など、お気軽にお問い合わせください。
+      </p>
+
+      <div class="contact-detail-row" style="margin-bottom: 1rem;">
+        <div>
+          <div style="font-size: 0.72rem; color: var(--text-muted);">DIRECT EMAIL</div>
+          <div class="contact-value" style="font-size: 0.95rem;">igatatsu1997@gmail.com</div>
+        </div>
+        <button type="button" class="copy-btn copy-email-btn">コピー</button>
+      </div>
+
+      <a href="mailto:igatatsu1997@gmail.com?subject=案件相談・共同開発のご連絡" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+        メーラーを起動して送信
+      </a>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>
